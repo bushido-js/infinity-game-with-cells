@@ -1,0 +1,7 @@
+.field td, .field2 td{
+  padding: 20px;
+  border: 1px solid black;
+}
+.active {
+  background: rgb(6, 162, 6);
+}
