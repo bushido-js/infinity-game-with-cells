@@ -3,7 +3,7 @@ initGame(document.querySelector('#game'));
 
 function initGame(game) {
   let field = game.querySelector('.field');
-  
+  console.error();
   let size = 1; // квадрат
 
   newGame();
@@ -20,7 +20,7 @@ function initGame(game) {
     for (let i = 0; i < cells.length; i++){
       cells[i].addEventListener('click', function() {
         if (this.innerHTML == counter){
-          this.classList.add('active');
+          this.style.backgroundColor = getRandomColor();
             if (counter === size**2) {
               size++;
               newGame();
@@ -118,4 +118,14 @@ function chunkArr(arr) {
 
 function getRandom(min, max){
   return Math.floor(Math.random() * (max - min + 1 )) + min;
+}
+
+
+function getRandomColor() {
+  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+  let result = [];
+  for (let i = 0; i < 6; i++){
+    result.push(arr[getRandom(0, arr.length - 1)]);
+  }
+  return '#' + result.join('');
 }
